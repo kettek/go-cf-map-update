@@ -183,6 +183,9 @@ func fixMap(name string) {
 				lines[i] = "difficulty" + line[5:]
 				changed = true
 				fmt.Println("Patched", line, "to", lines[i])
+			} else if strings.HasPrefix(line, "weight") {
+				// NOTE: I'm presuming weight is meant to be reset_timeout, as the only map that has it is a reduction from the default by 2000 and it's a mercenary hiring shop...
+				lines[i] = "reset_timeout" + line[6:]
 			}
 		} else if line == "More" { // Start processing any "More" entries.
 			fmt.Println("found more")
