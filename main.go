@@ -176,7 +176,11 @@ func fixMap(name string) {
 				changed = true
 				fmt.Println("Patched", line, "to", lines[i])
 			} else if strings.HasPrefix(line, "sp ") {
-				lines[i] = "enter_y" + line[3:]
+				lines[i] = "enter_y" + line[2:]
+				changed = true
+				fmt.Println("Patched", line, "to", lines[i])
+			} else if strings.HasPrefix(line, "level") {
+				lines[i] = "difficulty" + line[5:]
 				changed = true
 				fmt.Println("Patched", line, "to", lines[i])
 			}
