@@ -173,9 +173,11 @@ func fixMap(name string) {
 				fmt.Println("maxY", maxY)
 			} else if strings.HasPrefix(line, "hp") {
 				lines[i] = "enter_x" + line[2:]
+				changed = true
 				fmt.Println("Patched", line, "to", lines[i])
 			} else if strings.HasPrefix(line, "sp ") {
 				lines[i] = "enter_y" + line[3:]
+				changed = true
 				fmt.Println("Patched", line, "to", lines[i])
 			}
 		} else if line == "More" { // Start processing any "More" entries.
